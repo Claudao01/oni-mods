@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>TesteLog</AssemblyName>
+    <RootNamespace>TesteLog</RootNamespace>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+# Pastas de build geradas pelo compilador C#
+[Bb]in/
+[Oo]bj/
+
+# Arquivos e diretórios temporários do VS Code / Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Evitar o upload de DLLs no repositório público para evitar problemas de copyright com a Klei
+*.dll
+
+# Ignorar o código fonte descompilado do jogo
+.game-source/
+.game-libs/
