@@ -10,23 +10,23 @@
 
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>$(MSBuildThisFileDirectory)\.game-libs\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(MSBuildThisFileDirectory)\..\game\libs\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>$(MSBuildThisFileDirectory)\.game-libs\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>$(MSBuildThisFileDirectory)\..\game\libs\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>$(MSBuildThisFileDirectory)\.game-libs\UnityEngine.dll</HintPath>
+      <HintPath>$(MSBuildThisFileDirectory)\..\game\libs\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(MSBuildThisFileDirectory)\.game-libs\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(MSBuildThisFileDirectory)\..\game\libs\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="0Harmony">
-      <HintPath>$(MSBuildThisFileDirectory)\.game-libs\0Harmony.dll</HintPath>
+      <HintPath>$(MSBuildThisFileDirectory)\..\game\libs\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
