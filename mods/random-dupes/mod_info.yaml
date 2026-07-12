@@ -1,0 +1,6 @@
+supportedContent: ALL
+minimumSupportedBuild: 600000
+version: 0.1.0
+APIVersion: 2
+requiredDlcIds: []
+forbiddenDlcIds: []
