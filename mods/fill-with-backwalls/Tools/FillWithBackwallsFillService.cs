@@ -22,7 +22,7 @@ namespace FillWithBackwalls.Tools
 
             if (selectedElements == null || selectedElements.Count == 0)
             {
-                ShowWarning(feedbackPos, (string)STRINGS.UI.FEEDBACK.NO_MATERIAL);
+                ShowWarning(feedbackPos, STRINGS.UI.FEEDBACK.NO_MATERIAL.ToString());
                 return true;
             }
 
@@ -32,14 +32,14 @@ namespace FillWithBackwalls.Tools
             CavityInfo cavity = Game.Instance?.roomProber?.GetCavityForCell(cell);
             if (cavity == null || cavity.cells == null || cavity.NumCells <= 0)
             {
-                ShowWarning(feedbackPos, (string)STRINGS.UI.FEEDBACK.CLOSED_CAVITY_REQUIRED);
+                ShowWarning(feedbackPos, STRINGS.UI.FEEDBACK.CLOSED_CAVITY_REQUIRED.ToString());
                 return true;
             }
 
             int maxCavitySize = FillWithBackwallsOptions.Load().MaxCavitySize;
             if (cavity.NumCells > maxCavitySize)
             {
-                ShowWarning(feedbackPos, string.Format((string)STRINGS.UI.FEEDBACK.CAVITY_TOO_LARGE, cavity.NumCells, maxCavitySize));
+                ShowWarning(feedbackPos, string.Format(STRINGS.UI.FEEDBACK.CAVITY_TOO_LARGE.ToString(), cavity.NumCells, maxCavitySize));
                 return true;
             }
 
@@ -58,7 +58,7 @@ namespace FillWithBackwalls.Tools
             bool didSomething = queued > 0 || updated > 0;
             KMonoBehaviour.PlaySound(GlobalAssets.GetSound(didSomething ? "Tile_Confirm" : "Tile_Cancel"));
 
-            string summary = string.Format((string)STRINGS.UI.FEEDBACK.SUMMARY, queued, updated, skipped);
+            string summary = string.Format(STRINGS.UI.FEEDBACK.SUMMARY.ToString(), queued, updated, skipped);
             PopFXManager.Instance.SpawnFX(PopFXManager.Instance.sprite_Building, summary, null, feedbackPos, 2f);
             return true;
         }

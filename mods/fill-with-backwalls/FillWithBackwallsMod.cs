@@ -15,6 +15,7 @@ namespace FillWithBackwalls
             base.OnLoad(harmony);
 
             PUtil.InitLibrary();
+            LocString.CreateLocStringKeys(typeof(STRINGS), "FillWithBackwalls.");
             new POptions().RegisterOptions(this, typeof(FillWithBackwallsOptions));
             new PLocalization().Register();
 

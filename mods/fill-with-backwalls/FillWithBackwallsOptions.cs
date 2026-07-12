@@ -4,6 +4,7 @@ using PeterHan.PLib.Options;
 namespace FillWithBackwalls
 {
     [ConfigFile("config.json", true, false)]
+    [ModInfo("https://github.com/Claudao01/oni-mods/tree/main/mods/fill-with-backwalls")]
     [JsonObject(MemberSerialization.OptIn)]
     public sealed class FillWithBackwallsOptions
     {

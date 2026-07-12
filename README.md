@@ -1,39 +1,39 @@
 # ONI Mods
 
-Repositório público de mods para **Oxygen Not Included**, desenvolvido em C# com Harmony e PLib.
+Repositório público de mods para **Oxygen Not Included**, desenvolvidos em C# com Harmony e PLib.
 
-## Mods
+Cada mod vive em `mods/<nome-do-mod>/` e possui código-fonte, metadados, documentação, traduções e instruções próprias. O repositório também concentra releases, acompanhamento de problemas e materiais de referência para a comunidade.
 
-### Fill with Backwalls
+## Mods disponíveis
 
-Preenche uma cavidade fechada com a parede de fundo, o material e o visual selecionados.
+| Mod | Descrição | Documentação |
+| --- | --- | --- |
+| Fill with Backwalls | Preenche cavidades fechadas com paredes de fundo. | [README do mod](mods/fill-with-backwalls/README.md) |
 
-- código: `mods/fill-with-backwalls/`;
-- versão atual: `1.0.0`;
-- releases: [GitHub Releases](https://github.com/Claudao01/oni-mods/releases).
+## Instalação
 
-## Compilação local
+Baixe o ZIP da versão desejada em [Releases](https://github.com/Claudao01/oni-mods/releases), extraia a pasta do mod em `Documents\Klei\OxygenNotIncluded\mods\local\` e ative-o pelo menu **Mods** do jogo.
 
-As DLLs do ONI não são distribuídas neste repositório. No workspace de desenvolvimento, elas devem existir em `game/libs/`, conforme os caminhos definidos em `Directory.Build.props`.
+Consulte o README de cada mod para requisitos, compatibilidade, configuração e instruções de uso.
 
-```powershell
-dotnet build ".\mods\fill-with-backwalls\FillWithBackwalls.csproj" --configuration Release
-```
+## Problemas e contribuições
 
-No monorepo privado, o pacote completo é preparado por:
+Use [Issues](https://github.com/Claudao01/oni-mods/issues) para relatar erros, sugerir melhorias ou solicitar suporte. Ao abrir um problema, informe:
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File ".\oni-mods\scripts\package-fill-with-backwalls.ps1"
-```
+- o mod e a versão usados;
+- versão do ONI e DLCs ativos;
+- passos para reproduzir;
+- trecho relevante de `Player.log`, quando houver;
+- capturas de tela ou save de exemplo, se possível.
 
-O script compila a DLL, valida a versão `1.0.0`, atualiza `release/FillWithBackwalls.dll` e cria o ZIP em `oni-mods/artifacts/`.
+As issues são organizadas por labels de mod, tipo e prioridade. Consulte as regras e o roteiro de desenvolvimento do repositório antes de enviar uma contribuição.
 
-## Publicação
+## Desenvolvimento local
 
-O GitHub Actions não compila contra assemblies proprietários do jogo. O workflow valida a DLL preparada localmente, confere as versões do `.csproj`, `mod_info.yaml`, DLL e tag, monta o ZIP e publica a GitHub Release.
+As DLLs proprietárias do ONI não são distribuídas aqui. Para compilar localmente, configure referências válidas para as assemblies do jogo e siga as instruções do README do mod que deseja alterar.
 
-Tags de release seguem o formato:
+O material introdutório de modding será publicado em [tutorial/](tutorial/README.md).
 
-```text
-fill-with-backwalls-v1.0.0
-```
+## Releases
+
+As releases são publicadas por mod. Cada pacote contém somente os arquivos necessários para instalação e possui uma tag SemVer associada. Os detalhes de versão e alterações ficam no `CHANGELOG.md` de cada mod.

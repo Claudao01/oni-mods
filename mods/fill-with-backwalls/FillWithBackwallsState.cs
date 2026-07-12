@@ -4,8 +4,8 @@ namespace FillWithBackwalls
     {
         public static bool IsFillModeActive;
 
-        public static string Title => (string)STRINGS.UI.FILL_CAVITY.NAME;
+        public static string Title => STRINGS.UI.FILL_CAVITY.NAME.ToString();
 
-        public static string Tooltip => (string)STRINGS.UI.FILL_CAVITY.TOOLTIP;
+        public static string Tooltip => STRINGS.UI.FILL_CAVITY.TOOLTIP.ToString();
     }
 }

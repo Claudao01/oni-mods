@@ -24,7 +24,7 @@ if ($yamlVersion -ne $version) {
     throw "Versoes divergentes: csproj=$version, mod_info.yaml=$yamlVersion"
 }
 
-dotnet build $project --configuration Release
+dotnet build $project --configuration Release -p:NuGetAudit=false
 if ($LASTEXITCODE -ne 0) {
     throw "Falha ao compilar Fill with Backwalls."
 }

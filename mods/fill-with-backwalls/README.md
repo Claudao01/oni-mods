@@ -8,7 +8,8 @@ Preenche uma cavidade fechada com a parede de fundo, o material e o visual selec
 - cria ordens de construção em toda a cavidade fechada;
 - substitui o modelo, o material e o visual de paredes de fundo existentes;
 - permite limitar o tamanho máximo da cavidade pelo menu **Mods > Fill with Backwalls > Configurar**;
-- inclui interface em português do Brasil e inglês.
+- inclui dicionário em pt-BR, alemão, espanhol, francês, russo, chinês simplificado, japonês e coreano, com inglês como fallback;
+- disponibiliza o link do repositório na tela de configuração.
 
 ## Instalação manual
 
@@ -18,9 +19,20 @@ Preenche uma cavidade fechada com a parede de fundo, o material e o visual selec
 
 ## Uso
 
-Selecione uma parede de fundo, escolha o modelo e o material, ative **Preencher cavidade** e clique dentro de uma cavidade fechada. O modo permanece ativo até ser desmarcado.
+1. Selecione uma parede de fundo no menu de construção.
+2. Escolha o modelo, o material e o visual desejados.
+3. No painel de seleção de modelos e materiais da parede de fundo, marque o checkbox exibido ao lado ou abaixo da lista de materiais.
+4. Clique dentro de uma cavidade fechada.
 
-O limite padrão é de 120 células. A configuração é salva em `config.json`. Ao atualizar manualmente, preserve esse arquivo caso queira manter um valor personalizado.
+Em pt-BR, o checkbox aparece como **Preencher cavidade**. Em outros idiomas, o nome acompanha a tradução ativa do jogo ou do mod de idioma instalado. O modo permanece ativo até ser desmarcado.
+
+## Configuração
+
+No menu principal, abra **Mods**, localize **Fill with Backwalls** e selecione **Configurar**. O campo **Tamanho máximo da cavidade** define quantas células podem ser preenchidas por clique; o padrão é 120.
+
+A tela de configuração também mostra um acesso ao repositório do mod: [github.com/Claudao01/oni-mods/tree/main/mods/fill-with-backwalls](https://github.com/Claudao01/oni-mods/tree/main/mods/fill-with-backwalls).
+
+A configuração é salva em `config.json`. Ao atualizar manualmente, preserve esse arquivo caso queira manter um valor personalizado.
 
 ## Compatibilidade
 
