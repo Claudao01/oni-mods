@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Meteor Dig Orders 0.1.0\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Application: Oxygen Not Included\n"
+"POT Version: 2.0\n"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.ENUMS.URGENT"
+msgid "Urgent"
+msgstr "Urgente"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.ENUMS.ACTIVE_WORLD_ONLY"
+msgid "Active World Only"
+msgstr "Somente mundo ativo"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.ENUMS.ALL_WORLDS"
+msgid "All Worlds"
+msgstr "Todos os mundos"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.ENUMS.DISABLED"
+msgid "Disabled"
+msgstr "Desativadas"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.ENUMS.RESULTS_ONLY"
+msgid "Results Only"
+msgstr "Somente resultados"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.ENUMS.ALL_NOTIFICATIONS"
+msgid "Warnings and Results"
+msgstr "Alertas e resultados"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.OPTIONS.DIG_PRIORITY.NAME"
+msgid "Dig priority"
+msgstr "Prioridade de escavação"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.OPTIONS.DIG_PRIORITY.TOOLTIP"
+msgid "Priority assigned to new dig errands. Existing errands are only raised when their priority is lower."
+msgstr "Prioridade atribuída a novas ordens de escavação. Ordens existentes só são elevadas quando sua prioridade é menor."
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.OPTIONS.SOLAR_PANELS_ENABLED.NAME"
+msgid "Solar panels"
+msgstr "Painéis solares"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.OPTIONS.SOLAR_PANELS_ENABLED.TOOLTIP"
+msgid "Automatically queue dig errands for natural terrain overlapping solar panels."
+msgstr "Cria automaticamente ordens de escavação para terreno natural sobreposto a painéis solares."
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.OPTIONS.WORLD_SCOPE.NAME"
+msgid "World scope"
+msgstr "Escopo de mundos"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.OPTIONS.WORLD_SCOPE.TOOLTIP"
+msgid "Active World Only processes a bombardment only when it begins on the viewed world. All Worlds processes every affected asteroid."
+msgstr "Somente mundo ativo processa uma fase apenas quando ela começa no mundo visualizado. Todos os mundos processa cada asteroide afetado."
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.OPTIONS.NOTIFICATIONS.NAME"
+msgid "Notifications"
+msgstr "Notificações"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.OPTIONS.NOTIFICATIONS.TOOLTIP"
+msgid "Choose whether to disable notifications, show only cleanup results, or show meteor warnings and results."
+msgstr "Escolha entre desativar notificações, mostrar somente resultados ou mostrar alertas de meteoros e resultados."
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.BOMBARDMENT_STARTED"
+msgid "Meteor shower in progress"
+msgstr "Chuva de meteoros em andamento"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.BOMBARDMENT_STARTED_TOOLTIP"
+msgid "Meteor activity has begun in this world. Selected buildings will be checked when this bombardment phase ends."
+msgstr "A atividade de meteoros começou neste mundo. As construções selecionadas serão verificadas quando esta fase terminar."
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.BOMBARDMENT_PAUSED"
+msgid "Meteor activity paused"
+msgstr "Atividade de meteoros em pausa"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.BOMBARDMENT_PAUSED_TOOLTIP"
+msgid "This bombardment phase has ended, but more meteor activity may follow."
+msgstr "Esta fase de impactos terminou, mas ainda pode ocorrer mais atividade de meteoros."
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.CLEANUP_RESULT"
+msgid "Meteor cleanup queued"
+msgstr "Limpeza de meteoros solicitada"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.CLEANUP_RESULT_TOOLTIP"
+msgid "{0} new dig errands\n{1} priorities raised"
+msgstr "{0} novas ordens de escavação\n{1} prioridades elevadas"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.NO_CLEANUP_REQUIRED"
+msgid "No meteor cleanup required"
+msgstr "Nenhuma limpeza de meteoros necessária"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.NO_CLEANUP_REQUIRED_TOOLTIP"
+msgid "No dig errands were needed for the selected buildings."
+msgstr "Nenhuma ordem de escavação foi necessária para as construções selecionadas."
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.SHOWER_ENDED"
+msgid "Meteor shower ended"
+msgstr "Chuva de meteoros encerrada"
+
+msgctxt "CLD01_MeteorDigOrders.STRINGS.UI.NOTIFICATIONS.SHOWER_ENDED_TOOLTIP"
+msgid "Meteor activity has ended in this world."
+msgstr "A atividade de meteoros terminou neste mundo."

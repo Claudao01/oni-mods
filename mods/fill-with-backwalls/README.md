@@ -43,3 +43,7 @@ A configuração é salva em `config.json`. Ao atualizar manualmente, preserve e
 ## Desenvolvimento
 
 O projeto depende das DLLs locais do ONI e usa PLib 4.25.0, incorporada à DLL final por ILRepack. Os avisos e a licença estão em `THIRD_PARTY_NOTICES.md`. Consulte o repositório [Claudao01/oni-mods](https://github.com/Claudao01/oni-mods) para código-fonte, problemas conhecidos e releases.
+
+## Steam Workshop
+
+O texto bilíngue para a página do mod na Steam Workshop está em [docs/STEAM-WORKSHOP.md](./docs/STEAM-WORKSHOP.md).

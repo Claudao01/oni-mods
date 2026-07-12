@@ -19,6 +19,8 @@ O mod inclui traduções para pt-BR, alemão, espanhol, francês, russo, chinês
 
 Compatível com a API 2 de mods do ONI. A compatibilidade final com jogo base e Spaced Out! deve ser confirmada antes da publicação.
 
+---
+
 ## English (US)
 
 ### Fill with Backwalls
