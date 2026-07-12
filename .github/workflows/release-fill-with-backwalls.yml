@@ -1,0 +1,87 @@
+name: Publicar Fill with Backwalls
+
+on:
+  push:
+    tags:
+      - "fill-with-backwalls-v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versão SemVer já preparada localmente"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  validar-e-publicar:
+    runs-on: windows-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Validar versões e DLL
+        id: versao
+        shell: pwsh
+        run: |
+          $modRoot = Join-Path $env:GITHUB_WORKSPACE "mods\fill-with-backwalls"
+          if ("${{ github.event_name }}" -eq "push") {
+            $version = "${{ github.ref_name }}" -replace '^fill-with-backwalls-v', ''
+          } else {
+            $version = "${{ inputs.version }}"
+          }
+          if ($version -notmatch '^\d+\.\d+\.\d+$') {
+            throw "Versão inválida: $version"
+          }
+
+          [xml]$project = Get-Content (Join-Path $modRoot "FillWithBackwalls.csproj")
+          $projectVersion = [string]$project.Project.PropertyGroup.VersionPrefix
+          $yamlLine = Get-Content (Join-Path $modRoot "mod_info.yaml") |
+            Where-Object { $_ -match '^version:\s*' } |
+            Select-Object -First 1
+          $yamlVersion = ($yamlLine -replace '^version:\s*', '').Trim()
+          $dllPath = Join-Path $modRoot "release\FillWithBackwalls.dll"
+          if (-not (Test-Path $dllPath)) {
+            throw "DLL de release ausente: $dllPath"
+          }
+          $dllVersion = [System.Reflection.AssemblyName]::GetAssemblyName($dllPath).Version.ToString(3)
+
+          if ($version -ne $projectVersion -or $version -ne $yamlVersion -or $version -ne $dllVersion) {
+            throw "Versões divergentes: tag=$version csproj=$projectVersion yaml=$yamlVersion dll=$dllVersion"
+          }
+          "version=$version" >> $env:GITHUB_OUTPUT
+
+      - name: Montar o pacote
+        shell: pwsh
+        run: |
+          $modRoot = Join-Path $env:GITHUB_WORKSPACE "mods\fill-with-backwalls"
+          $staging = Join-Path $env:RUNNER_TEMP "fill-with-backwalls"
+          New-Item -ItemType Directory -Force -Path $staging | Out-Null
+          Copy-Item (Join-Path $modRoot "release\FillWithBackwalls.dll") $staging
+          @("config.json", "mod.yaml", "mod_info.yaml", "README.md", "CHANGELOG.md", "THIRD_PARTY_NOTICES.md") | ForEach-Object {
+            Copy-Item (Join-Path $modRoot $_) $staging
+          }
+          Copy-Item (Join-Path $modRoot "translations") $staging -Recurse
+          $zip = Join-Path $env:RUNNER_TEMP "fill-with-backwalls-v${{ steps.versao.outputs.version }}.zip"
+          Compress-Archive -Path $staging -DestinationPath $zip -CompressionLevel Optimal
+          "ZIP_PATH=$zip" >> $env:GITHUB_ENV
+
+      - name: Guardar artefato validado
+        uses: actions/upload-artifact@v4
+        with:
+          name: fill-with-backwalls-v${{ steps.versao.outputs.version }}
+          path: ${{ env.ZIP_PATH }}
+
+      - name: Criar GitHub Release
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Fill with Backwalls v${{ steps.versao.outputs.version }}
+          body: |
+            Release v${{ steps.versao.outputs.version }} do mod **Fill with Backwalls**.
+
+            Consulte o `CHANGELOG.md` incluído no pacote para conhecer as alterações.
+          generate_release_notes: false
+          make_latest: true
+          files: ${{ env.ZIP_PATH }}

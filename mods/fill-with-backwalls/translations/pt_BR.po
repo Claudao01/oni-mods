@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Fill with Backwalls 1.0.0\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Application: Oxygen Not Included\n"
+"POT Version: 2.0\n"
+
+#. FillWithBackwalls.STRINGS.UI.FILL_CAVITY.NAME
+msgctxt "FillWithBackwalls.STRINGS.UI.FILL_CAVITY.NAME"
+msgid "Fill cavity"
+msgstr "Preencher cavidade"
+
+#. FillWithBackwalls.STRINGS.UI.FILL_CAVITY.TOOLTIP
+msgctxt "FillWithBackwalls.STRINGS.UI.FILL_CAVITY.TOOLTIP"
+msgid "Fills the entire enclosed cavity with the selected backwall blueprint, material, and facade."
+msgstr "Preenche toda a cavidade fechada com o modelo, o material e o visual de parede de fundo selecionados."
+
+#. FillWithBackwalls.STRINGS.UI.OPTIONS.MAX_CAVITY_SIZE.NAME
+msgctxt "FillWithBackwalls.STRINGS.UI.OPTIONS.MAX_CAVITY_SIZE.NAME"
+msgid "Maximum cavity size"
+msgstr "Tamanho máximo da cavidade"
+
+#. FillWithBackwalls.STRINGS.UI.OPTIONS.MAX_CAVITY_SIZE.TOOLTIP
+msgctxt "FillWithBackwalls.STRINGS.UI.OPTIONS.MAX_CAVITY_SIZE.TOOLTIP"
+msgid "Maximum number of cells that can be filled with one click."
+msgstr "Número máximo de células que podem ser preenchidas com um clique."
+
+#. FillWithBackwalls.STRINGS.UI.FEEDBACK.NO_MATERIAL
+msgctxt "FillWithBackwalls.STRINGS.UI.FEEDBACK.NO_MATERIAL"
+msgid "No material is selected for this backwall."
+msgstr "Nenhum material foi selecionado para esta parede de fundo."
+
+#. FillWithBackwalls.STRINGS.UI.FEEDBACK.CLOSED_CAVITY_REQUIRED
+msgctxt "FillWithBackwalls.STRINGS.UI.FEEDBACK.CLOSED_CAVITY_REQUIRED"
+msgid "Select a cell inside an enclosed cavity."
+msgstr "Selecione uma célula dentro de uma cavidade fechada."
+
+#. FillWithBackwalls.STRINGS.UI.FEEDBACK.CAVITY_TOO_LARGE
+msgctxt "FillWithBackwalls.STRINGS.UI.FEEDBACK.CAVITY_TOO_LARGE"
+msgid "Cavity too large ({0} cells). Current limit: {1}."
+msgstr "A cavidade é muito grande ({0} células). Limite atual: {1}."
+
+#. FillWithBackwalls.STRINGS.UI.FEEDBACK.SUMMARY
+msgctxt "FillWithBackwalls.STRINGS.UI.FEEDBACK.SUMMARY"
+msgid "{0} build orders queued, {1} facades updated, {2} cells skipped."
+msgstr "{0} ordens de construção criadas, {1} visuais atualizados e {2} células ignoradas."
