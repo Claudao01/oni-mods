@@ -1,0 +1,81 @@
+name: Publicar Random Dupes
+
+on:
+  push:
+    tags:
+      - "random-dupes-v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versao SemVer ja preparada localmente"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  validar-e-publicar:
+    runs-on: windows-latest
+    steps:
+      - name: Baixar o repositorio
+        uses: actions/checkout@v4
+
+      - name: Validar versoes e DLL
+        id: versao
+        shell: pwsh
+        run: |
+          $modRoot = Join-Path $env:GITHUB_WORKSPACE "mods\random-dupes"
+          if ("${{ github.event_name }}" -eq "push") {
+            $version = "${{ github.ref_name }}" -replace '^random-dupes-v', ''
+          } else {
+            $version = "${{ inputs.version }}"
+          }
+          if ($version -notmatch '^\d+\.\d+\.\d+$') { throw "Versao invalida: $version" }
+
+          [xml]$project = Get-Content (Join-Path $modRoot "CLD01_RandomDupes.csproj")
+          $projectVersion = [string]$project.Project.PropertyGroup.VersionPrefix
+          $yamlLine = Get-Content (Join-Path $modRoot "mod_info.yaml") |
+            Where-Object { $_ -match '^version:\s*' } | Select-Object -First 1
+          $yamlVersion = ($yamlLine -replace '^version:\s*', '').Trim()
+          $dllPath = Join-Path $modRoot "release\CLD01_RandomDupes.dll"
+          if (-not (Test-Path $dllPath)) { throw "DLL de release ausente: $dllPath" }
+          $dllVersion = [System.Reflection.AssemblyName]::GetAssemblyName($dllPath).Version.ToString(3)
+          if ($version -ne $projectVersion -or $version -ne $yamlVersion -or $version -ne $dllVersion) {
+            throw "Versoes divergentes: tag=$version csproj=$projectVersion yaml=$yamlVersion dll=$dllVersion"
+          }
+          "version=$version" >> $env:GITHUB_OUTPUT
+
+      - name: Montar o pacote
+        shell: pwsh
+        run: |
+          $modRoot = Join-Path $env:GITHUB_WORKSPACE "mods\random-dupes"
+          $stagingRoot = Join-Path $env:RUNNER_TEMP "random-dupes-package"
+          $staging = Join-Path $stagingRoot "random-dupes"
+          New-Item -ItemType Directory -Force -Path $staging | Out-Null
+          Copy-Item (Join-Path $modRoot "release\CLD01_RandomDupes.dll") $staging
+          @("mod.yaml", "mod_info.yaml", "README.md", "CHANGELOG.md") | ForEach-Object {
+            Copy-Item (Join-Path $modRoot $_) $staging
+          }
+          $zip = Join-Path $env:RUNNER_TEMP "random-dupes-v${{ steps.versao.outputs.version }}.zip"
+          Compress-Archive -Path $staging -DestinationPath $zip -CompressionLevel Optimal
+          "ZIP_PATH=$zip" >> $env:GITHUB_ENV
+
+      - name: Guardar artefato validado
+        uses: actions/upload-artifact@v4
+        with:
+          name: random-dupes-v${{ steps.versao.outputs.version }}
+          path: ${{ env.ZIP_PATH }}
+
+      - name: Criar GitHub Release
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "[CLD01] Random Dupes v${{ steps.versao.outputs.version }}"
+          body: |
+            Release v${{ steps.versao.outputs.version }} do mod **[CLD01] Random Dupes**.
+
+            Consulte o `CHANGELOG.md` incluido no pacote para conhecer as alteracoes.
+          generate_release_notes: false
+          make_latest: true
+          files: ${{ env.ZIP_PATH }}

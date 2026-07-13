@@ -11,6 +11,7 @@
 # Evitar o upload de DLLs no repositório público para evitar problemas de copyright com a Klei
 *.dll
 !mods/fill-with-backwalls/release/FillWithBackwalls.dll
+!mods/random-dupes/release/CLD01_RandomDupes.dll
 artifacts/
 
 # Ignorar o código fonte descompilado do jogo

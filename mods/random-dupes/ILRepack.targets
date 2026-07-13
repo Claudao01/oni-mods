@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="ILRepacker" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <ItemGroup>
+      <InputAssemblies Include="$(TargetPath)" />
+      <InputAssemblies Include="$(TargetDir)PLib.dll" />
+      <LibraryPath Include="$(MSBuildThisFileDirectory)..\..\..\game\libs" />
+    </ItemGroup>
+    <ILRepack Parallel="true" Internalize="true" InputAssemblies="@(InputAssemblies)" LibraryPath="@(LibraryPath)" TargetKind="Dll" OutputFile="$(TargetPath)" />
+    <Delete Files="$(TargetDir)PLib.dll" />
+  </Target>
+</Project>

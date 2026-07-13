@@ -1,4 +1,5 @@
 using HarmonyLib;
+using RandomDupes.Diagnostics;
 using RandomDupes.Randomization;
 
 namespace RandomDupes.Patches
@@ -6,9 +7,26 @@ namespace RandomDupes.Patches
     [HarmonyPatch(typeof(Db), nameof(Db.Initialize))]
     internal static class DbInitializePatch
     {
-        private static void Postfix()
+        [HarmonyPriority(Priority.Last)]
+        private static void Postfix(Db __instance)
         {
-            AppearancePools.Rebuild();
+            try
+            {
+                if (__instance?.Personalities == null || __instance.AccessorySlots == null)
+                {
+                    ErrorLogger.Write(
+                        "Building appearance pools after database initialization",
+                        "Db.Initialize completed without Personalities or AccessorySlots.");
+                    return;
+                }
+
+                AppearancePools.Rebuild(__instance);
+                PersonalityCatalogExporter.Export(__instance);
+            }
+            catch (System.Exception exception)
+            {
+                ErrorLogger.Write("Building appearance pools after database initialization", exception);
+            }
         }
     }
 }

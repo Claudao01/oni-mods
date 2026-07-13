@@ -1,0 +1,75 @@
+[h1][CLD01] Random Dupes[/h1]
+
+[b]Misture a aparencia fisica dos duplicantes sem alterar roupas, traits ou aptidoes.[/b]
+
+[h2]Recursos[/h2]
+[list]
+[*] Randomiza nome exibido, cabelo, olhos, boca e conjunto coerente de pele.
+[*] Mantem personalidade, genero, voz, modelo, traits, interesses e atributos originais.
+[*] Separa rigorosamente os pools de duplicantes Standard e Bionic.
+[*] Preserva roupas, outfits, Atmo Suits e Jet Suits.
+[*] Oferece perfis, seed deterministica, exclusoes de doadores e peso da aparencia original.
+[*] Adiciona opcionalmente um botao para rerrolar somente a aparencia na Printing Pod.
+[*] Inclui preview animado, catalogo CSV, diagnostico opt-in e log de erros timestampado.
+[/list]
+
+[h2]Configuracao[/h2]
+[list=1]
+[*] Use [b]Mods > [CLD01] Random Dupes > Options[/b] para definir os padroes globais de novas partidas.
+[*] Durante uma partida, use [b]Options > Mod Settings > [CLD01] Random Dupes[/b] para criar configuracoes exclusivas daquele save.
+[*] Use [b]Use global defaults[/b] para remover o override da colonia.
+[/list]
+
+[h2]Dependencia[/h2]
+[b][CLD01] Per-Save Mod Settings[/b] e necessario para a tela [b]Mod Settings[/b] dentro da partida. A randomizacao principal continua funcionando sem essa dependencia, usando os defaults globais.
+
+[h2]Compatibilidade[/h2]
+[list]
+[*] ONI Mod API 2.
+[*] Jogo base, Spaced Out! e duplicantes Bionic.
+[*] Nenhuma DLC obrigatoria.
+[*] Projetado para coexistir com mods de roupas: este mod nunca randomiza vestuario.
+[/list]
+
+[color=orange][b]Importante:[/b] o mod altera apenas candidatos gerados depois de sua ativacao. Duplicantes ja existentes no save nao sao randomizados novamente.[/color]
+
+[url=https://github.com/Claudao01/oni-mods/tree/main/mods/random-dupes]Codigo-fonte e documentacao no GitHub[/url]
+
+[hr][/hr]
+
+[h1][CLD01] Random Dupes — English[/h1]
+
+[b]Mix duplicant physical appearance without changing clothing, traits, or aptitudes.[/b]
+
+[h2]Features[/h2]
+[list]
+[*] Randomizes displayed name, hair, eyes, mouth, and a coherent skin set.
+[*] Preserves the original personality, gender, voice, model, traits, interests, and attributes.
+[*] Strictly separates Standard and Bionic duplicant pools.
+[*] Preserves clothing, outfits, Atmo Suits, and Jet Suits.
+[*] Provides profiles, deterministic seeds, donor exclusions, and original-appearance weighting.
+[*] Can add a button that rerolls only physical appearance in the Printing Pod.
+[*] Includes an animated preview, CSV catalog, opt-in diagnostics, and timestamped error log.
+[/list]
+
+[h2]Configuration[/h2]
+[list=1]
+[*] Use [b]Mods > [CLD01] Random Dupes > Options[/b] to configure global defaults for new games.
+[*] While playing, use [b]Options > Mod Settings > [CLD01] Random Dupes[/b] to create settings exclusive to that save.
+[*] Select [b]Use global defaults[/b] to remove the colony override.
+[/list]
+
+[h2]Dependency[/h2]
+[b][CLD01] Per-Save Mod Settings[/b] is required for the in-game [b]Mod Settings[/b] screen. Core randomization still works without it by using global defaults.
+
+[h2]Compatibility[/h2]
+[list]
+[*] ONI Mod API 2.
+[*] Base game, Spaced Out!, and Bionic duplicants.
+[*] No required DLC.
+[*] Designed to coexist with clothing mods: this mod never randomizes clothing.
+[/list]
+
+[color=orange][b]Important:[/b] the mod affects candidates generated after activation. Existing duplicants in a save are not randomized again.[/color]
+
+[url=https://github.com/Claudao01/oni-mods/tree/main/mods/random-dupes]Source code and documentation on GitHub[/url]
